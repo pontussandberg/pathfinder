@@ -2,4 +2,4 @@
 
 <p>This app will find a way to get from point A - B in a grid</p> 
 <br>
-Demo <a href="https://pathfinder-app.netlify.com/">page</a>
+Demo <a target="_blank" href="https://pathfinder-app.netlify.com/">page</a>
