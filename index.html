@@ -19,10 +19,18 @@
                     Example: <br>
                     row 1: 0, 1, 2, 3, 4, 5...., 49<br>
                     row 2: 50, 51, 52....
-                    <br><br>
-                    Click on any square-cell to make it a "wall". The program will find its way around it if its
+                </p>
+
+                <p>
+                    Choose start and end position. Program will try to find a path from start to targeted position.
+                </p>
+
+                <p>Click on any square-cell to toggle it into "wall". The program will find its way around it if its
                     possible.
                 </p>
+
+
+
             </div>
 
 
@@ -31,16 +39,16 @@
 
             <div class="app-form">
                 <label for="start-input">Start Position (0 - 2499)</label>
-                <input id="start-input" type="text" placeholder="0">
+                <input id="start-input" autocomplete="off" type="text" placeholder="0">
 
                 <label for="end-input">End Position (0 - 2499)</label>
-                <input id="end-input" type="text" placeholder="2499">
+                <input id="end-input" autocomplete="off" type="text" placeholder="2499">
 
                 <label for="interval-input">Draw intervals (default: 100)</label>
-                <input id="interval-input" type="text" placeholder="100">
+                <input id="interval-input" autocomplete="off" type="text" placeholder="100">
 
-                <div onclick="handleStart()" class="btn btn-primary" id="buttonz">Start</div>
-                <div onclick="handleReset()" class="btn btn-danger">Reset</div>
+                <div onclick="handleStart()" class="btn btn-primary" id="btn-1">Start</div>
+                <div onclick="handleReset()" class="btn btn-danger" id="btn-1">Reset</div>
 
             </div>
 

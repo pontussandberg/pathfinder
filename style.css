@@ -35,3 +35,15 @@ label{
     margin: 0 !important;
     margin-top: 10px !important;
 }
+
+#btn-1{
+    width: 200px;
+    height: 40px;
+    margin: 10px;
+    justify-self: center;
+}
+
+input{
+    border: none;
+    padding: 10px 20px;
+}
