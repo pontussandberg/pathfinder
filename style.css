@@ -8,6 +8,7 @@ body, *{
     display: grid;
     grid-template-columns: 1fr;
     justify-items: center;
+
 }
 
 .app-container{
@@ -17,8 +18,8 @@ body, *{
 .instructions {
     width: 500px;
     background-color: #c6c6c6 !important;
-    padding: 15px;
-    border-bottom: 1px solid #111;
+    padding: 10px 45px;
+    border-bottom: 3px solid #333;
 }
 .instructions p{
     width: 300px;
@@ -29,6 +30,7 @@ body, *{
     display: grid;
     background-color: #c6c6c6 !important;
     padding: 15px;
+    border-top: 3px solid #333;
 }
 
 label{

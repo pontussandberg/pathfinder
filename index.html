@@ -15,22 +15,31 @@
         <div class="grid-wrapper">
 
             <div class="instructions">
-                <p>The position of each square in the grid is numbered from left to right 0 - 2499. <br>
-                    Example: <br>
-                    row 1: 0, 1, 2, 3, 4, 5...., 49<br>
-                    row 2: 50, 51, 52....
-                </p>
-
-                <p>
-                    Choose start and end position. Program will try to find a path from start to targeted position.
-                </p>
-
-                <p>Click on any square-cell to toggle it into "wall". The program will find its way around it if its
-                    possible.
-                </p>
-
-
-
+                <ul>
+                    <li>
+                        <p>Position Nr:
+                            <br>
+                            row 1: 0, 1, 2... , 49
+                            <br>
+                            row 2: 50, 51, 52... , 98
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Find path between choosen start and end position.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Click on any square-cell to toggle it into impassable wall.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Press Reset to clear all walls.
+                        </p>
+                    </li>
+                </ul>
             </div>
 
 
@@ -43,9 +52,6 @@
 
                 <label for="end-input">End Position (0 - 2499)</label>
                 <input id="end-input" autocomplete="off" type="text" placeholder="2499">
-
-                <label for="interval-input">Draw intervals (default: 100)</label>
-                <input id="interval-input" autocomplete="off" type="text" placeholder="100">
 
                 <div onclick="handleStart()" class="btn btn-primary" id="btn-1">Start</div>
                 <div onclick="handleReset()" class="btn btn-danger" id="btn-1">Reset</div>
@@ -60,6 +66,7 @@
     </div>
 
     <script src="./app.js"></script>
+
 </body>
 
 </html>
