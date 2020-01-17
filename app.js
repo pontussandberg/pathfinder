@@ -250,6 +250,7 @@ class Game {
         this.bestPath = [];
         this.initalPos = null;
         this.finishPos = null;
+        clearInterval(this.interval);
         this.paintBoard();
     }
 
@@ -317,6 +318,7 @@ game.paintBoard();
 game.getDefaultWalls();
 
 function handleReset() {
+    clearInterval(game.interval);
     game = new Game();
     game.paintBoard();
 }
