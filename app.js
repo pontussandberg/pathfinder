@@ -181,11 +181,9 @@ class Game {
     }
 
     makeCellPathed() {
-
         let index = this.board.indexOf(this.currentPos);
         this.bestPath.push(this.currentPos);
         this.board[index].bestPath = true;
-
     }
 
     filterVisited() {
@@ -219,10 +217,14 @@ class Game {
         for (let i = 0; i < this.board.length; i++) {
             if (this.board[i].y === clickedY && this.board[i].x === clickedX) {
                 if (this.board[i].wall) {
+                    console.log("remove", i);
+
                     this.board[i].wall = false;
                     this.board[i].draw('#fff');
                 }
                 else {
+                    console.log(i);
+                    this.board[i].wall = true;
                     this.board[i].draw('#111');
                 }
             }
@@ -255,8 +257,8 @@ class Game {
     }
 
     getDefaultWalls() {
-        let defaultWalls = [617, 592, 567, 542, 517, 492, 467, 417,
-            442, 392, 367, 342, 343, 344, 345, 346, 347, 348, 623,
+        let defaultWalls = [592, 567, 542, 517, 492, 467,
+            392, 367, 342, 343, 344, 345, 346, 347, 348, 623,
             598, 573, 548, 523, 492, 473, 472, 471, 470, 469, 474,
             323, 298, 273, 248, 223, 198, 173, 148, 123, 98, 73,
             48, 47, 46, 41, 40, 39, 38, 37, 35, 34, 33, 32, 31,
@@ -264,7 +266,10 @@ class Game {
             266, 291, 316, 341, 240, 239, 238, 237, 236, 235,
             234, 233, 208, 183, 158, 133, 108, 83, 58, 134,
             160, 186, 212, 211, 210, 185, 209, 184, 159,
-            135, 161, 187, 213, 109];
+            135, 161, 187, 213, 109, 468, 466, 465, 464,
+            463, 462, 460, 434, 408, 382, 381, 379, 378,
+            377, 376, 375, 380, 416, 415, 414, 413, 412,
+            417, 424, 423, 421, 368, 369, 393, 422, 445, 446];
 
         for (let i = 0; i < this.board.length; i++) {
             for (let j = 0; j < defaultWalls.length; j++) {
