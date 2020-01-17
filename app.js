@@ -83,7 +83,7 @@ class Game {
         this.isRunningBack = true;
         this.options = [];
 
-        this.interval = setInterval(this.runBackLoop, 30);
+        this.interval = setInterval(this.runBackLoop, 10);
     }
 
     runBackLoop = () => {
@@ -127,9 +127,11 @@ class Game {
             if (cp.row - 1 === arr[i].row && cp.col === arr[i].col)
                 isValidOption = true;
 
+            // checking for walls
             if (arr[i].wall)
                 isValidOption = false;
 
+            // bestPath is where the program has been on the way back
             if (arr[i].bestPath) {
                 isValidOption = false;
             }
@@ -145,9 +147,6 @@ class Game {
             }
         }
     }
-
-
-
 
     move() {
         let shortestDist;
@@ -172,7 +171,6 @@ class Game {
             this.currentPos = bestOption;
         }
     }
-
 
     makeCellVisited() {
         let index = this.board.indexOf(this.currentPos);
@@ -217,13 +215,10 @@ class Game {
         for (let i = 0; i < this.board.length; i++) {
             if (this.board[i].y === clickedY && this.board[i].x === clickedX) {
                 if (this.board[i].wall) {
-                    console.log("remove", i);
-
                     this.board[i].wall = false;
                     this.board[i].draw('#fff');
                 }
                 else {
-                    console.log(i);
                     this.board[i].wall = true;
                     this.board[i].draw('#111');
                 }
@@ -269,7 +264,8 @@ class Game {
             135, 161, 187, 213, 109, 468, 466, 465, 464,
             463, 462, 460, 434, 408, 382, 381, 379, 378,
             377, 376, 375, 380, 416, 415, 414, 413, 412,
-            417, 424, 423, 421, 368, 369, 393, 422, 445, 446];
+            417, 424, 423, 421, 368, 369, 393, 422, 445,
+            446, 447, 448, 449, 459, 433, 407];
 
         for (let i = 0; i < this.board.length; i++) {
             for (let j = 0; j < defaultWalls.length; j++) {
@@ -306,7 +302,6 @@ class Game {
             arr[i].draw(color);
         }
     }
-
 }
 
 // init
@@ -314,13 +309,16 @@ let canvas = document.getElementById('canvas');
 let ctx = canvas.getContext("2d");
 canvas.addEventListener('mousedown', handleClick);
 
-// Canvas must be a square
+// square class is dependant on these sizes...
 canvas.height = 500;
 canvas.width = 500;
+
+
 
 let game = new Game();
 game.paintBoard();
 game.getDefaultWalls();
+
 
 function handleReset() {
     clearInterval(game.interval);

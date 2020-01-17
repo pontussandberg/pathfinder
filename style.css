@@ -2,6 +2,7 @@ body, *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    
 }
 
 h6{
@@ -35,9 +36,10 @@ h6{
 
 .instructions {
     width: 500px;
-    background-color: #c6c6c6 !important;
+    background-color: #555 !important;
     padding: 10px 45px;
     border-bottom: 3px solid #333;
+    color: #fff;
 }
 .instructions p{
     width: 300px;
@@ -46,9 +48,10 @@ h6{
 .app-form{
     width: 500px;
     display: grid;
-    background-color: #c6c6c6 !important;
+    background-color: #555 !important;
     padding: 15px;
     border-top: 3px solid #333;
+    color: #fff;
 }
 
 label{
