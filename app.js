@@ -334,8 +334,8 @@ let game = new Game();
 game.paintBoard();
 game.getDefaultWalls();
 // Drawing default start and end pos
-game.board[0].draw("#27a744")
-game.board[624].draw("#d95350")
+game.board[0].draw("#27a744", true);
+game.board[624].draw("#d95350", true);
 
 
 function handleReset() {
