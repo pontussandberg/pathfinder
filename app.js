@@ -38,7 +38,7 @@ class Game {
         this.finishPos;
         this.currentPos;
         this.interval;
-        this.isGrid = false;
+        this.isGrid = true;
     }
 
     handleStart() {
