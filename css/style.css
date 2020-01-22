@@ -2,12 +2,16 @@ body, *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    
 }
 
 h6{
     font-size: 17px !important;
     margin: 10px 0 25px 0 !important;
+}
+
+h5{
+    font-size: 18px;   
+    margin-bottom: 15px !important;
 }
 
 .fat{
@@ -37,7 +41,7 @@ h6{
 .instructions {
     width: 500px;
     background-color: #dfdfdf !important;
-    padding: 10px 45px;
+    padding: 20px 45px;
     border-bottom: 3px solid #333;
     color: #111;
 }
@@ -45,7 +49,18 @@ h6{
     width: 300px;
 }
 
+.form-instr{
+    margin: 15px;
+}
+
+.danger{
+    color: #dc3545;
+
+}
+
+
 .app-form{
+    position: relative;
     width: 500px;
     display: grid;
     background-color: #dfdfdf !important;
@@ -59,14 +74,52 @@ label{
     margin-top: 10px !important;
 }
 
-#btn-1{
-    width: 200px;
-    height: 40px;
-    margin: 10px;
-    justify-self: center;
-}
 
 input{
     border: none;
     padding: 10px 20px;
+}
+
+.red{
+    color: #d95350;
+}
+
+.green{
+    color: #27a744;
+}
+
+.blue{
+     color: #007bff;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.buttons{
+    margin-top: 40px;
+    display: grid;
+    grid-template-areas: 
+    'startbtn resetbtn'
+    'gridbtn gridbtn';
+    grid-gap: 10px;
+}
+
+.startbtn{
+    grid-area: startbtn;
+}
+
+.gridbtn{
+    grid-area: gridbtn;
+}
+
+.resetbtn{
+    grid-area: resetbtn;
+}
+
+
+
+canvas{
+    border: 30px solid #4f4f4f;
+    background-color: #606060;  
 }

@@ -15,33 +15,30 @@
         <div class="grid-wrapper">
 
             <div class="instructions">
-                <h6 class="fat">Pathfinder using recursion and Pythagoras theorem</h6>
+                <h6 class="fat">Pathfinder</h6>
                 <hr>
-                <ul>
+                <ol>
+
                     <li>
-                        <p><span class="fat underline">Position Nr:</span>
-                            <br>
-                            <span class="underline m-2">row 1:</span><span class="numbers"> 0, 1, 2... , 24</span>
-                            <br>
-                            <span class="underline m-2">row 2:</span> <span class="numbers">25, 26, 27... , 49</span>
+                        <p>
+                            Press <span class="blue">Find path</span> to find path between <span
+                                class="green">start</span>
+                            and <span class="red">end</span> position.
                         </p>
                     </li>
                     <li>
                         <p>
-                            Find path between choosen start and end position.
+                            Click anywhere to toggle wall.
                         </p>
                     </li>
-                    <li>
-                        <p>
-                            Click on any square-cell to toggle it into a wall.
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            Press Reset to clear all walls.
-                        </p>
-                    </li>
-                </ul>
+
+                </ol>
+                <div class="buttons">
+                    <div onclick="handleStart()" class="btn btn-primary startbtn">Find path</div>
+                    <div onclick="handleGrid()" class="btn btn-secondary gridbtn">Toggle Grid</div>
+                    <div onclick="handleReset()" class="btn btn-danger resetbtn">Reset</div>
+                </div>
+
             </div>
 
 
@@ -50,14 +47,19 @@
 
             <div class="app-form">
                 <label for="start-input">Start Position (0 - 2499)</label>
-                <input id="start-input" autocomplete="off" type="text" placeholder="0">
+                <input id="start-input" autocomplete="off" type="text" placeholder="default: 0">
 
                 <label for="end-input">End Position (0 - 2499)</label>
-                <input id="end-input" autocomplete="off" type="text" placeholder="2499">
+                <input id="end-input" autocomplete="off" type="text" placeholder="default: 2499">
 
-                <div onclick="handleStart()" class="btn btn-primary" id="btn-1">Start</div>
-                <div onclick="handleReset()" class="btn btn-danger" id="btn-1">Reset</div>
+                <div class="form-instr">
 
+                    <h5 class="fat underline text-center">Position numbering</h5>
+
+                    <span class="underline m-5">row 1:</span><span class="numbers"> 0, 1, 2... , 24</span>
+                    <br>
+                    <span class="underline m-5">row 2:</span> <span class="numbers">25, 26, 27... , 49</span>
+                </div>
             </div>
 
 

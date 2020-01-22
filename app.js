@@ -9,13 +9,17 @@ class Square {
         this.height = 20;
         this.ctx = context;
     }
-    draw(color) {
+    draw(color, grid) {
+        let fillSize = 20;
+        if (grid) fillSize = 19;
+
         if (color) this.ctx.fillStyle = color;
         else this.ctx.fillStyle = "#fff";
         this.ctx.beginPath();
-        this.ctx.fillRect(this.x, this.y, 19, 19);
+        this.ctx.fillRect(this.x, this.y, fillSize, fillSize);
         this.ctx.stroke();
     }
+
 
     log() {
         console.log(x);
@@ -34,6 +38,7 @@ class Game {
         this.finishPos;
         this.currentPos;
         this.interval;
+        this.isGrid = false;
     }
 
     handleStart() {
@@ -50,7 +55,6 @@ class Game {
         this.initalPos = this.currentPos;
         this.finishPos = this.board[endPos];
         this.board[endPos].endPos = true;
-        this.currentPos.draw("yellow");
 
         this.isRunning = true;
         this.interval = setInterval(this.runLoop, 30)
@@ -97,11 +101,8 @@ class Game {
         }
         else {
             clearInterval(this.interval);
-            this.finishPos.draw("yellow");
-            this.initalPos.draw("yellow");
             this.isRunning = false;
             this.isRunningBack = false;
-            console.log("done");
         }
     }
 
@@ -217,11 +218,8 @@ class Game {
                 if (this.board[i].wall) {
                     this.board[i].wall = false;
                     this.board[i].draw('#fff');
-                    console.log("remove: " + i)
-
                 }
                 else {
-                    console.log(i)
                     this.board[i].wall = true;
                     this.board[i].draw('#111');
                 }
@@ -298,17 +296,24 @@ class Game {
 
     paintBoard() {
         for (let i = 0; i < this.board.length; i++) {
-            if (this.board[i].wall) this.board[i].draw("#111");             // wall
-            else if (this.board[i].bestPath) this.board[i].draw("#007bff"); // visited
-            else if (this.board[i].endPos) this.board[i].draw("#d95350");   // best path
-            else if (this.board[i].visited) this.board[i].draw("#27a744");  // finish
-            else this.board[i].draw("#fff");                                // empty
+            if (this.board[i].wall) this.board[i].draw("#111", this.isGrid);
+            else if (this.board[i].bestPath) this.board[i].draw("#007bff", this.isGrid);
+            else if (this.board[i].endPos) this.board[i].draw("#d95350", this.isGrid);
+            else if (this.board[i].visited) this.board[i].draw("#27a744", this.isGrid);
+            else this.board[i].draw("#fff", this.isGrid);
         }
     }
 
-    drawArr(arr, color) {
-        for (let i = 0; i < arr.length; i++) {
-            arr[i].draw(color);
+    toggleGrid() {
+        if (this.isGrid) {
+            this.isGrid = false;
+            ctx.clearRect(0, 0, 500, 500);
+            this.paintBoard();
+        }
+        else {
+            this.isGrid = true;
+            ctx.clearRect(0, 0, 500, 500);
+            this.paintBoard();
         }
     }
 }
@@ -322,11 +327,13 @@ canvas.addEventListener('mousedown', handleClick);
 canvas.height = 500;
 canvas.width = 500;
 
-
-
+// Initializing the game and "game-board"
 let game = new Game();
 game.paintBoard();
 game.getDefaultWalls();
+// Drawing default start and end pos
+game.board[0].draw("#27a744")
+game.board[624].draw("#d95350")
 
 
 function handleReset() {
@@ -341,4 +348,8 @@ function handleClick(e) {
 
 function handleStart() {
     game.handleStart();
+}
+
+function handleGrid() {
+    game.toggleGrid();
 }
