@@ -249,6 +249,8 @@ class Game {
         this.initalPos = null;
         this.finishPos = null;
         clearInterval(this.interval);
+
+        ctx.clearRect(0, 0, 500, 500);
         this.paintBoard();
     }
 
