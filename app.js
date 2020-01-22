@@ -309,14 +309,13 @@ class Game {
     toggleGrid() {
         if (this.isGrid) {
             this.isGrid = false;
-            ctx.clearRect(0, 0, 500, 500);
-            this.paintBoard();
         }
         else {
             this.isGrid = true;
-            ctx.clearRect(0, 0, 500, 500);
-            this.paintBoard();
         }
+        ctx.clearRect(0, 0, 500, 500);
+        this.paintBoard();
+
     }
 }
 
@@ -340,7 +339,9 @@ game.board[624].draw("#d95350", true);
 
 function handleReset() {
     clearInterval(game.interval);
+    let isGrid = game.isGrid;
     game = new Game();
+    game.isGrid = isGrid;
     game.paintBoard();
 }
 
